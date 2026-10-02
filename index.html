@@ -89,6 +89,19 @@
     .bullet small{display:block;color:var(--muted);font-size:14px}
     .bullet-mark{flex:0 0 28px;width:28px;height:28px;border-radius:50%;background:#eaf4ff;color:var(--blue);display:grid;place-items:center;font-weight:900}
     .info-image{border-radius:24px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#fff}
+    .native-infographic{background:linear-gradient(180deg,#ffffff,#f7fbff);border:1px solid var(--line);border-radius:28px;padding:30px;box-shadow:var(--shadow)}
+    .native-infographic h3{margin:0 0 8px;color:var(--navy);font-size:30px;line-height:1.05;letter-spacing:-.03em}
+    .native-infographic>p{margin:0 0 22px;color:var(--muted)}
+    .native-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0 22px}
+    .native-stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px}
+    .native-stat strong{display:block;color:var(--blue);font-size:30px;line-height:1;margin-bottom:7px;letter-spacing:-.03em}
+    .native-stat span{display:block;color:var(--navy);font-weight:900;font-size:14px}
+    .native-stat small{display:block;color:var(--muted);font-size:12px;margin-top:5px}
+    .native-steps{display:grid;gap:12px;margin-top:18px}
+    .native-step{display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px}
+    .native-step .num{width:38px;height:38px;border-radius:12px;background:#eaf4ff;color:var(--blue);display:grid;place-items:center;font-weight:900}
+    .native-step strong{display:block;color:var(--navy);margin-bottom:2px}
+    .native-step small{display:block;color:var(--muted);font-size:13px}
     .audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .audience{border-radius:20px;padding:24px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid var(--line)}
     .audience h3{margin:0 0 8px;color:var(--navy)}
@@ -143,7 +156,7 @@
       .hero{padding-top:42px}
       .hero-card img{height:460px}
       .photo-card img{height:440px}
-      .feature-grid,.stat-grid,.pricing-grid,.audience-grid,.row-2{grid-template-columns:1fr}
+      .feature-grid,.stat-grid,.pricing-grid,.audience-grid,.row-2,.native-stats{grid-template-columns:1fr}
       .contact-band{padding:28px}
       .mobile-sticky{display:flex}
       section{padding:72px 0}
@@ -296,15 +309,58 @@
         <div class="eyebrow">Why prevention matters</div>
         <h2 style="margin:10px 0 14px;color:var(--navy);font-size:clamp(32px,4vw,50px);line-height:1.04;letter-spacing:-.035em;">Protect the problem area before the damage gets worse.</h2>
         <p style="margin:0;color:var(--muted);font-size:18px;">Pets often scratch the same narrow section of the doorway again and again. Scratch Guard creates a clear protective barrier over that vulnerable edge.</p>
+
         <div class="bullet-list">
           <div class="bullet"><div class="bullet-mark">1</div><div><strong>Helps prevent repeated claw contact</strong><small>Covers the area pets commonly target when waiting at the door.</small></div></div>
           <div class="bullet"><div class="bullet-mark">2</div><div><strong>Helps preserve the door-seal area</strong><small>Protects the vulnerable edge before scratching turns into deeper wear.</small></div></div>
           <div class="bullet"><div class="bullet-mark">3</div><div><strong>Clear protection that stays subtle</strong><small>Designed to protect without adding a bulky or industrial-looking guard.</small></div></div>
         </div>
+
         <p class="small" style="margin-top:18px;">Energy-savings figures shown here describe broader home air-sealing and efficiency improvements and vary by home. Scratch Guard protects one vulnerable area and does not guarantee a specific savings amount.</p>
       </div>
-      <div class="info-image">
-        <img src="assets/scratch-guard-infographic.jpg" alt="Why protecting your door seal matters">
+
+      <div class="native-infographic" aria-label="Why protecting your door seal matters">
+        <div class="eyebrow">Why protect your door seal?</div>
+        <h3>A small damaged area can become a bigger home-efficiency problem.</h3>
+        <p>Scratch Guard protects the exact edge pets commonly damage while keeping the doorway visually clean.</p>
+
+        <div class="native-stats">
+          <div class="native-stat">
+            <strong>10%</strong>
+            <span>Potential annual bill savings</span>
+            <small>ENERGY STAR: sealing air leaks plus insulation improvements.</small>
+          </div>
+          <div class="native-stat">
+            <strong>15%</strong>
+            <span>Heating & cooling savings</span>
+            <small>Average estimate from broader air-sealing and insulation work.</small>
+          </div>
+          <div class="native-stat">
+            <strong>10–20%</strong>
+            <span>Energy cost lost to drafts & leaks</span>
+            <small>DOE estimate including drafts, opening leaks, and outdated HVAC.</small>
+          </div>
+          <div class="native-stat">
+            <strong>45%</strong>
+            <span>Heating-related energy use</span>
+            <small>Nearly half of average household energy expense can be heating-related.</small>
+          </div>
+        </div>
+
+        <div class="native-steps">
+          <div class="native-step">
+            <div class="num">1</div>
+            <div><strong>Pets scratch the same edge repeatedly.</strong><small>That repeated contact can damage trim and weather stripping over time.</small></div>
+          </div>
+          <div class="native-step">
+            <div class="num">2</div>
+            <div><strong>Damaged seals can allow unwanted air leakage.</strong><small>Protecting the vulnerable edge helps preserve the condition of the seal area.</small></div>
+          </div>
+          <div class="native-step">
+            <div class="num">3</div>
+            <div><strong>Scratch Guard adds a clear protective barrier.</strong><small>Simple, discreet protection for a very specific high-wear zone.</small></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
