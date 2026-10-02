@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scratch Guard | Protect Door Weather Stripping from Pet Damage</title>
+  <meta name="description" content="Scratch Guard helps protect door weather stripping and trim from pet scratching with a clear, discreet barrier." />
+  <meta property="og:title" content="Scratch Guard" />
+  <meta property="og:description" content="Protect your door weather stripping from pet damage." />
+  <meta property="og:image" content="assets/scratch-guard-after.jpg" />
+  <meta name="theme-color" content="#0a73f0" />
+  <style>
+    :root{
+      --navy:#071a3d;
+      --navy-2:#0d2556;
+      --blue:#0a73f0;
+      --blue-2:#3ea6ff;
+      --blue-3:#eef6ff;
+      --ink:#15233d;
+      --muted:#5f6d84;
+      --line:#d9e5f2;
+      --soft:#f7fbff;
+      --white:#ffffff;
+      --shadow:0 22px 60px rgba(7,26,61,.12);
+      --radius:24px;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;color:var(--ink);background:#fff;line-height:1.55}
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    .wrap{max-width:var(--max);margin:auto;padding:0 24px}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#eaf4ff;color:var(--blue);font-size:13px;font-weight:800;letter-spacing:.01em}
+    .eyebrow{color:var(--blue);font-weight:900;letter-spacing:.08em;text-transform:uppercase;font-size:12px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:14px;padding:14px 20px;font-weight:800;cursor:pointer;transition:.22s ease;white-space:nowrap}
+    .btn-primary{background:linear-gradient(135deg,var(--blue),#0866d6);color:#fff;box-shadow:0 14px 30px rgba(10,115,240,.24)}
+    .btn-primary:hover{transform:translateY(-1px)}
+    .btn-secondary{background:#fff;color:var(--blue);border:1.5px solid var(--blue)}
+    .btn-soft{background:#ebf4ff;color:var(--blue)}
+    .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(217,229,242,.85)}
+    .nav-inner{height:82px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand img{width:165px;height:auto}
+    .nav-links{display:flex;align-items:center;gap:22px}
+    .nav-links a{font-size:14px;font-weight:800;color:var(--navy)}
+    .nav-links a:hover{color:var(--blue)}
+    .nav-cta{display:flex;align-items:center;gap:10px}
+    .menu-toggle{display:none;border:1px solid var(--line);background:#fff;color:var(--navy);width:46px;height:46px;border-radius:12px;font-size:22px;cursor:pointer}
+    .mobile-menu{display:none;padding:0 24px 22px;border-top:1px solid var(--line);background:#fff}
+    .mobile-menu.open{display:block}
+    .mobile-menu a{display:block;padding:14px 0;font-weight:800;color:var(--navy);border-bottom:1px solid #edf3fa}
+    .mobile-menu .btn{width:100%;margin-top:14px}
+    .hero{background:radial-gradient(circle at 15% 15%, rgba(62,166,255,.18), transparent 28%),radial-gradient(circle at 85% 10%, rgba(10,115,240,.10), transparent 26%),linear-gradient(180deg,#fbfdff 0%, #f5faff 100%);padding:58px 0 72px}
+    .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:52px;align-items:center}
+    h1{margin:14px 0 18px;color:var(--navy);font-size:clamp(42px,6vw,76px);line-height:.97;letter-spacing:-.045em}
+    h1 span{color:var(--blue)}
+    .hero-copy{font-size:19px;color:var(--muted);max-width:660px}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin:28px 0 24px}
+    .hero-points{display:flex;flex-wrap:wrap;gap:14px;color:var(--muted);font-size:14px;font-weight:800}
+    .hero-points span{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);padding:10px 12px;border-radius:999px}
+    .hero-points span::before{content:"✓";width:18px;height:18px;display:grid;place-items:center;border-radius:50%;background:#eaf4ff;color:var(--blue);font-size:12px;font-weight:900}
+    .hero-card{position:relative;border-radius:30px;overflow:hidden;background:#fff;box-shadow:var(--shadow)}
+    .hero-card img{width:100%;height:620px;object-fit:cover;object-position:center}
+    .hero-tag{position:absolute;left:20px;bottom:20px;background:rgba(7,26,61,.82);backdrop-filter:blur(10px);color:#fff;padding:14px 16px;border-radius:16px;max-width:320px;font-weight:800;font-size:15px}
+    section{padding:84px 0}
+    .section-head{margin:0 auto 38px;max-width:780px;text-align:center}
+    .section-head h2{color:var(--navy);font-size:clamp(32px,4vw,52px);line-height:1.04;letter-spacing:-.035em;margin:10px 0 16px}
+    .section-head p{margin:0;color:var(--muted);font-size:18px}
+    .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .photo-card{position:relative;overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow);background:#fff}
+    .photo-card img{width:100%;height:660px;object-fit:cover}
+    .badge{position:absolute;top:18px;left:18px;padding:9px 14px;border-radius:999px;color:#fff;background:var(--navy);font-weight:900}
+    .badge.after{background:var(--blue)}
+    .stats-band{background:var(--soft);border-top:1px solid #e8f0f7;border-bottom:1px solid #e8f0f7}
+    .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .stat{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 10px 26px rgba(7,26,61,.05)}
+    .stat .kicker{color:var(--blue);font-size:36px;font-weight:900;line-height:1;margin-bottom:10px;letter-spacing:-.03em}
+    .stat h3{margin:0 0 8px;color:var(--navy);font-size:19px}
+    .stat p{margin:0;color:var(--muted)}
+    .feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .feature{border:1px solid var(--line);border-radius:20px;padding:26px;background:#fff;box-shadow:0 10px 28px rgba(7,26,61,.04)}
+    .feature-icon{width:50px;height:50px;border-radius:16px;background:#eaf4ff;color:var(--blue);display:grid;place-items:center;font-size:22px;margin-bottom:18px}
+    .feature h3{margin:0 0 8px;color:var(--navy);font-size:20px}
+    .feature p{margin:0;color:var(--muted)}
+    .infographic-grid{display:grid;grid-template-columns:1fr .95fr;gap:28px;align-items:center}
+    .bullet-list{display:grid;gap:14px;margin-top:22px}
+    .bullet{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;border-radius:18px;background:#fff;border:1px solid var(--line)}
+    .bullet strong{display:block;color:var(--navy)}
+    .bullet small{display:block;color:var(--muted);font-size:14px}
+    .bullet-mark{flex:0 0 28px;width:28px;height:28px;border-radius:50%;background:#eaf4ff;color:var(--blue);display:grid;place-items:center;font-weight:900}
+    .info-image{border-radius:24px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#fff}
+    .audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .audience{border-radius:20px;padding:24px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid var(--line)}
+    .audience h3{margin:0 0 8px;color:var(--navy)}
+    .audience p{margin:0;color:var(--muted)}
+    .pricing{background:linear-gradient(180deg,#fbfdff 0%, #f4f9ff 100%)}
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .price-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:0 12px 34px rgba(7,26,61,.06)}
+    .price-card.featured{border:2px solid var(--blue);transform:translateY(-4px);box-shadow:0 20px 40px rgba(10,115,240,.12)}
+    .ribbon{position:absolute;top:18px;right:18px;background:#eaf4ff;color:var(--blue);padding:7px 10px;border-radius:999px;font-size:12px;font-weight:900}
+    .price-card h3{margin:0;color:var(--navy);font-size:24px}
+    .price{margin:12px 0 10px;font-size:46px;line-height:1;font-weight:900;color:var(--navy);letter-spacing:-.04em}
+    .price span{font-size:16px;color:var(--muted);font-weight:800}
+    .price-desc{color:var(--muted);min-height:50px}
+    .price-list{list-style:none;padding:0;margin:18px 0 22px;display:grid;gap:10px}
+    .price-list li{display:flex;gap:10px;align-items:flex-start;color:var(--ink)}
+    .price-list li::before{content:"✓";color:var(--blue);font-weight:900}
+    .pricing-note{margin-top:18px;text-align:center;color:var(--muted);font-size:14px}
+    .forms-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .form-card{border:1px solid var(--line);border-radius:24px;padding:28px;background:#fff;box-shadow:0 12px 30px rgba(7,26,61,.05)}
+    .form-card h3{margin:0 0 8px;color:var(--navy);font-size:26px}
+    .form-card p{margin:0 0 18px;color:var(--muted)}
+    form{display:grid;gap:12px}
+    .row-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    input, select, textarea{width:100%;border:1px solid var(--line);border-radius:14px;padding:14px 15px;font-size:15px;font-family:inherit;color:var(--ink);background:#fff;outline:none}
+    input:focus, select:focus, textarea:focus{border-color:#a9c8ef;box-shadow:0 0 0 4px rgba(10,115,240,.08)}
+    textarea{min-height:120px;resize:vertical}
+    .form-note{margin-top:8px;color:var(--muted);font-size:13px}
+    .faq{max-width:860px;margin:0 auto}
+    details{border-bottom:1px solid var(--line);padding:18px 0}
+    summary{cursor:pointer;font-weight:900;color:var(--navy)}
+    details p{margin:10px 0 0;color:var(--muted)}
+    .contact-band{background:linear-gradient(135deg,var(--navy),var(--navy-2));border-radius:28px;padding:36px;color:#fff;display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:center}
+    .contact-band h2{margin:0 0 12px;font-size:clamp(32px,4vw,48px);line-height:1.04;letter-spacing:-.03em}
+    .contact-band p{margin:0;color:#d0def6}
+    .contact-points{display:grid;gap:10px;margin-top:18px}
+    .contact-points span{color:#fff;font-weight:700}
+    footer{border-top:1px solid var(--line);padding:34px 0 94px;background:#fff}
+    .footer-grid{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .footer-grid img{width:158px}
+    .small{font-size:13px;color:var(--muted)}
+    .mobile-sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:none;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:10px;gap:10px;align-items:center;justify-content:space-between}
+    .mobile-sticky strong{font-size:14px;color:var(--navy)}
+    .mobile-sticky small{display:block;color:var(--muted)}
+    @media (max-width: 1000px){
+      .hero-grid,.infographic-grid,.contact-band,.forms-grid{grid-template-columns:1fr}
+      .feature-grid,.stat-grid,.pricing-grid,.audience-grid{grid-template-columns:1fr 1fr}
+      .compare-grid{grid-template-columns:1fr}
+    }
+    @media (max-width: 760px){
+      .nav-links,.nav-cta .btn{display:none}
+      .menu-toggle{display:block}
+      .hero{padding-top:42px}
+      .hero-card img{height:460px}
+      .photo-card img{height:440px}
+      .feature-grid,.stat-grid,.pricing-grid,.audience-grid,.row-2{grid-template-columns:1fr}
+      .contact-band{padding:28px}
+      .mobile-sticky{display:flex}
+      section{padding:72px 0}
+      .wrap{padding:0 18px}
+      .brand img{width:145px}
+    }
+  </style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Scratch Guard home">
+      <img src="assets/scratch-guard-logo.png" alt="Scratch Guard">
+    </a>
+    <nav class="nav-links">
+      <a href="#benefits">Benefits</a>
+      <a href="#before-after">Before & After</a>
+      <a href="#research">Research</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="#preorder">Reserve Early Access</a>
+      <button class="menu-toggle" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#benefits" onclick="toggleMenu()">Benefits</a>
+    <a href="#before-after" onclick="toggleMenu()">Before & After</a>
+    <a href="#research" onclick="toggleMenu()">Research</a>
+    <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+    <a href="#faq" onclick="toggleMenu()">FAQ</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+    <a class="btn btn-primary" href="#preorder" onclick="toggleMenu()">Reserve Early Access</a>
+  </div>
+</header>
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="pill">Clear protection for pet-scratched doorways</div>
+        <h1>Protect your door weather stripping <span>before more damage adds up.</span></h1>
+        <p class="hero-copy">Scratch Guard is a clear, discreet barrier designed to help shield the vulnerable edge where pets often scratch — helping preserve the look of the entry and protect the door-seal area.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#preorder">Reserve Early Access</a>
+          <a class="btn btn-secondary" href="#before-after">View Before & After</a>
+          <a class="btn btn-soft" href="#pricing">See Pricing</a>
+        </div>
+        <div class="hero-points">
+          <span>Clear & discreet</span>
+          <span>Peel-and-stick install</span>
+          <span>Made for pet households</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="assets/scratch-guard-after.jpg" alt="Scratch Guard installed by a door edge to protect weather stripping">
+        <div class="hero-tag">Designed to protect the problem area without making the doorway look industrial.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="before-after">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Real product photos</div>
+        <h2>See the difference at the door.</h2>
+        <p>One of the clearest ways to explain Scratch Guard is to show the exact area it is meant to protect.</p>
+      </div>
+      <div class="compare-grid">
+        <figure class="photo-card">
+          <img src="assets/scratch-guard-before.jpg" alt="Door jamb showing pet scratching and trim damage before Scratch Guard">
+          <figcaption class="badge">Before</figcaption>
+        </figure>
+        <figure class="photo-card">
+          <img src="assets/scratch-guard-after.jpg" alt="Door jamb protected by Scratch Guard after installation">
+          <figcaption class="badge after">After</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="benefits">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Benefits</div>
+        <h2>A simple product built around one highly targeted problem.</h2>
+        <p>Scratch Guard is meant to help protect the exact edge where pet scratching often starts to wear down the doorway.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature">
+          <div class="feature-icon">◉</div>
+          <h3>Clear & discreet</h3>
+          <p>The transparent profile is designed to blend into the doorway rather than draw attention to itself.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon">↟</div>
+          <h3>Easy to install</h3>
+          <p>Peel-and-stick installation keeps setup simple for homeowners, renters, and property managers.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon">⬢</div>
+          <h3>Protects the vulnerable edge</h3>
+          <p>Adds a physical barrier over the area where claws can repeatedly hit the trim and seal area.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon">⌂</div>
+          <h3>Cleaner-looking entry</h3>
+          <p>Helps preserve the look of the doorway while reducing the chance of continued wear in the problem area.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-band" id="research">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Research-backed marketing</div>
+        <h2>Why protecting the seal area matters.</h2>
+        <p>Seal damage is not only cosmetic. Air leaks around openings can affect comfort, efficiency, and the cost of keeping a home comfortable.</p>
+      </div>
+      <div class="stat-grid">
+        <article class="stat">
+          <div class="kicker">Up to 10%</div>
+          <h3>Annual energy bills</h3>
+          <p>ENERGY STAR says sealing air leaks and adding insulation can save up to 10% on annual energy bills.</p>
+        </article>
+        <article class="stat">
+          <div class="kicker">15%</div>
+          <h3>Heating & cooling</h3>
+          <p>ENERGY STAR estimates average savings of about 15% on heating and cooling costs from broader air-sealing and insulation improvements.</p>
+        </article>
+        <article class="stat">
+          <div class="kicker">10%–20%</div>
+          <h3>Wasted energy costs</h3>
+          <p>The U.S. Department of Energy says drafts, air leaks around openings, and outdated HVAC systems waste roughly 10% to 20% of annual home energy costs.</p>
+        </article>
+        <article class="stat">
+          <div class="kicker">45%</div>
+          <h3>Household energy spend</h3>
+          <p>Heating-related costs make up nearly 45% of average household energy expenses, which makes the seal area worth protecting.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap infographic-grid">
+      <div>
+        <div class="eyebrow">Website-ready graphic</div>
+        <h2 style="margin:10px 0 14px;color:var(--navy);font-size:clamp(32px,4vw,50px);line-height:1.04;letter-spacing:-.035em;">Use this infographic in your marketing.</h2>
+        <p style="margin:0;color:var(--muted);font-size:18px;">The infographic below is already integrated into the site and can also be reused in emails, social posts, or pitch materials.</p>
+        <div class="bullet-list">
+          <div class="bullet"><div class="bullet-mark">1</div><div><strong>Explains the problem quickly</strong><small>Shows the damage area, why it matters, and where Scratch Guard fits.</small></div></div>
+          <div class="bullet"><div class="bullet-mark">2</div><div><strong>Supports the value story</strong><small>Uses researched context without overstating utility-bill savings.</small></div></div>
+          <div class="bullet"><div class="bullet-mark">3</div><div><strong>Strengthens launch credibility</strong><small>Helps customers understand that protecting this small area can still matter.</small></div></div>
+        </div>
+        <p class="small" style="margin-top:18px;">Note: the energy figures describe broader air-sealing and efficiency work and vary by home. Scratch Guard helps protect one vulnerable area and does not guarantee a specific savings amount.</p>
+      </div>
+      <div class="info-image">
+        <img src="assets/scratch-guard-infographic.jpg" alt="Scratch Guard infographic for website marketing">
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fbfdff;">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Who it's for</div>
+        <h2>Built for the people most likely to feel this problem.</h2>
+      </div>
+      <div class="audience-grid">
+        <article class="audience"><h3>Pet owners</h3><p>Especially useful for dogs or other pets that repeatedly scratch near the door when waiting to be let in or out.</p></article>
+        <article class="audience"><h3>Homeowners & renters</h3><p>Helps preserve the look of the entry and protect a high-contact area without a bulky add-on.</p></article>
+        <article class="audience"><h3>Landlords & property managers</h3><p>A simple preventative product for doors in pet-friendly rentals, multifamily units, or managed properties.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Pricing & preorder</div>
+        <h2>Simple launch pricing to test demand.</h2>
+        <p>These are polished launch-ready pricing cards you can use now and edit later as your final offer changes.</p>
+      </div>
+      <div class="pricing-grid">
+        <article class="price-card">
+          <h3>Single Door Kit</h3>
+          <div class="price">$29 <span>/ kit</span></div>
+          <div class="price-desc">Best for one doorway or first-time buyers wanting to test the product.</div>
+          <ul class="price-list">
+            <li>1 Scratch Guard unit</li>
+            <li>Adhesive-backed install</li>
+            <li>Great for a single entry</li>
+          </ul>
+          <a class="btn btn-secondary" href="#preorder">Choose Single Kit</a>
+        </article>
+        <article class="price-card featured">
+          <div class="ribbon">Most likely starter offer</div>
+          <h3>2-Pack Home Kit</h3>
+          <div class="price">$49 <span>/ bundle</span></div>
+          <div class="price-desc">Good for front and back doors or multiple pet-problem spots in the same home.</div>
+          <ul class="price-list">
+            <li>2 Scratch Guard units</li>
+            <li>Better value than singles</li>
+            <li>Ideal for most homeowners</li>
+          </ul>
+          <a class="btn btn-primary" href="#preorder">Choose 2-Pack</a>
+        </article>
+        <article class="price-card">
+          <h3>Property / Multi-Door</h3>
+          <div class="price">Custom <span>quote</span></div>
+          <div class="price-desc">For rentals, builders, or property managers interested in multiple doors.</div>
+          <ul class="price-list">
+            <li>Multi-unit pricing</li>
+            <li>Property-manager interest</li>
+            <li>Bulk order conversation</li>
+          </ul>
+          <a class="btn btn-secondary" href="#contact">Request Quote</a>
+        </article>
+      </div>
+      <div class="pricing-note">Pricing shown here is a ready-to-use launch framework and can be updated later as you finalize fulfillment and margin targets.</div>
+    </div>
+  </section>
+
+  <section id="preorder">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Lead capture</div>
+        <h2>Collect early buyers and launch leads.</h2>
+        <p>The forms below are already set up for static-site deployment. On Netlify, they can start collecting submissions automatically.</p>
+      </div>
+      <div class="forms-grid">
+        <div class="form-card">
+          <h3>Early access / preorder interest</h3>
+          <p>No payment is collected here. This is a polished lead-capture form to measure demand before launch.</p>
+          <form name="scratch-guard-preorder" method="POST" data-netlify="true" action="thank-you.html">
+            <input type="hidden" name="form-name" value="scratch-guard-preorder">
+            <div class="row-2">
+              <input type="text" name="name" placeholder="Your name" required>
+              <input type="email" name="email" placeholder="Email address" required>
+            </div>
+            <div class="row-2">
+              <select name="package_interest" required>
+                <option value="">Package of interest</option>
+                <option>Single Door Kit</option>
+                <option>2-Pack Home Kit</option>
+                <option>Property / Multi-Door</option>
+              </select>
+              <select name="door_count">
+                <option value="">How many doors?</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3–5</option>
+                <option>6+</option>
+              </select>
+            </div>
+            <textarea name="notes" placeholder="Anything helpful to know? (pet type, use case, property type, etc.)"></textarea>
+            <button class="btn btn-primary" type="submit">Join the Early Access List</button>
+          </form>
+          <div class="form-note">Tip: if you later add ecommerce, this section can become a checkout or waitlist-to-cart funnel.</div>
+        </div>
+        <div class="form-card" id="contact">
+          <h3>Contact / quote request</h3>
+          <p>Use this for general inquiries, media, retail conversations, or property-manager outreach.</p>
+          <form name="scratch-guard-contact" method="POST" data-netlify="true" action="thank-you.html">
+            <input type="hidden" name="form-name" value="scratch-guard-contact">
+            <div class="row-2">
+              <input type="text" name="name" placeholder="Your name" required>
+              <input type="email" name="email" placeholder="Email address" required>
+            </div>
+            <div class="row-2">
+              <input type="text" name="company" placeholder="Company (optional)">
+              <select name="reason">
+                <option value="">Reason for contact</option>
+                <option>General question</option>
+                <option>Bulk / property inquiry</option>
+                <option>Retail / wholesale inquiry</option>
+                <option>Media / partnership</option>
+              </select>
+            </div>
+            <textarea name="message" placeholder="How can we help?" required></textarea>
+            <button class="btn btn-primary" type="submit">Send Message</button>
+          </form>
+          <div class="form-note">You can replace or supplement this with your email address, phone number, or a CRM form later.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap contact-band">
+      <div>
+        <div class="eyebrow" style="color:#8bc0ff;">Launch-ready v2</div>
+        <h2>This version is now more polished, more sales-ready, and more mobile friendly.</h2>
+        <p>You asked for all four upgrades: a more polished site, pricing/preorder, contact and lead capture, and a mobile-optimized v2. All of that is now included in this build.</p>
+      </div>
+      <div>
+        <div class="contact-points">
+          <span>• Refined visual hierarchy and cleaner sections</span>
+          <span>• Pricing cards you can edit later</span>
+          <span>• Netlify-ready lead capture and contact forms</span>
+          <span>• Responsive mobile menu and sticky mobile CTA</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">FAQ</div>
+        <h2>Common questions.</h2>
+      </div>
+      <div class="faq">
+        <details><summary>What does Scratch Guard protect?</summary><p>Scratch Guard is designed to cover the vulnerable door-jamb / weather-stripping edge where pets often scratch.</p></details>
+        <details><summary>Is Scratch Guard visible after installation?</summary><p>The current concept uses a clear acrylic profile intended to remain visually subtle once installed.</p></details>
+        <details><summary>How is it attached?</summary><p>The current pilot concept uses adhesive backing for a peel-and-stick installation approach.</p></details>
+        <details><summary>Can I order now?</summary><p>This website version is set up to collect preorder interest and launch leads. You can convert it into a live ecommerce checkout later if desired.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <img src="assets/scratch-guard-logo.png" alt="Scratch Guard">
+    <div class="small">© 2026 Scratch Guard. Protect door weather stripping.<br>This website includes researched general context about air sealing; savings vary by home and product use case.</div>
+  </div>
+</footer>
+
+<div class="mobile-sticky">
+  <div><strong>Scratch Guard</strong><small>Reserve early access</small></div>
+  <a class="btn btn-primary" href="#preorder">Join List</a>
+</div>
+
+<script>
+  function toggleMenu(){
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
