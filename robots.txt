@@ -1,0 +1,11 @@
+# Scratch Guard - robots.txt
+# https://scratch-guard.netlify.app
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://scratch-guard.netlify.app/sitemap.xml
+
+# Don't index thank-you page (form confirmation)
+Disallow: /thank-you.html
